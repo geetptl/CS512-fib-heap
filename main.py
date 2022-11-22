@@ -1,12 +1,9 @@
 import sys
 from optparse import OptionParser
 
-import matplotlib.pyplot as plt
-import networkx as nx
-
-from source import Dijkstra
 from source import FibHeap
 from source import MinHeap
+from source import DijkstraHandler
 
 USAGE = """
 USAGE : python3 main.py <options>
@@ -56,11 +53,4 @@ def parseInput(argv):
 
 if __name__ == '__main__':
     PriorityQueue, nodes, edges, density, runs, priorityQueueType = parseInput(sys.argv[1:])
-    for i in range(0, runs):
-        print("Run {}".format(i + 1))
-        graph = nx.gnm_random_graph(nodes, edges, seed=None, directed=False)
-        nx.draw(graph, with_labels=True)
-        plt.savefig("outputs/n_{}_e_{}_d_{}_pq_{}_run_{}.png".format(nodes, edges, density, priorityQueueType, i))
-        plt.figure().clear()
-        dijkstra = Dijkstra.Dijkstra()
-        dijkstra.run(graph, PriorityQueue)
+    DijkstraHandler.DijkstraHandler.run(nodes, edges, runs, PriorityQueue, priorityQueueType)
