@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 
-from source import Dijkstra
+from source.dijkstra import Dijkstra
 
 
 class DijkstraHandler:
+
     @classmethod
     def run(cls, nodes, edges, runs, PriorityQueue, priorityQueueType):
         for i in range(0, runs):
@@ -13,5 +14,5 @@ class DijkstraHandler:
             nx.draw(graph, with_labels=True)
             plt.savefig("outputs/n_{}_e_{}_pq_{}_run_{}.png".format(nodes, edges, priorityQueueType, i))
             plt.figure().clear()
-            dijkstra = Dijkstra.Dijkstra()
+            dijkstra = Dijkstra()
             dijkstra.run(graph, PriorityQueue)

@@ -1,7 +1,7 @@
-from source import PriorityQueue
+from source.priorityQueue import PriorityQueue
 
 
-class FibHeap(PriorityQueue.PriorityQueue):
+class FibHeap(PriorityQueue):
     def insert(self, key):
         print("FibHeap insert({})".format(key))
 

@@ -1,7 +1,7 @@
-from source import PriorityQueue
+from source.priorityQueue import PriorityQueue
 
 
-class MinHeap(PriorityQueue.PriorityQueue):
+class MinHeap(PriorityQueue):
     def insert(self, key):
         print("MinHeap insert({})".format(key))
 

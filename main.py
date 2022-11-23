@@ -1,9 +1,9 @@
 import sys
 from optparse import OptionParser
 
-from source import FibHeap
-from source import MinHeap
-from source import DijkstraHandler
+from source.dijkstraHandler import DijkstraHandler
+from source.fibHeap import FibHeap
+from source.minHeap import MinHeap
 
 USAGE = """
 USAGE : python3 main.py <options>
@@ -34,7 +34,7 @@ def parseInput(argv):
     if len(junk) != 0:
         raise Exception('Command line input not understood: ' + str(junk))
 
-    pqClass = MinHeap.MinHeap if options.priorityqueue == "min-heap" else FibHeap.FibHeap
+    pqClass = MinHeap if options.priorityqueue == "min-heap" else FibHeap
     nodes_ = int(options.nodes)
     density_ = float(options.density)
     runs_ = int(options.runs)
@@ -53,4 +53,4 @@ def parseInput(argv):
 
 if __name__ == '__main__':
     PriorityQueue, nodes, edges, density, runs, priorityQueueType = parseInput(sys.argv[1:])
-    DijkstraHandler.DijkstraHandler.run(nodes, edges, runs, PriorityQueue, priorityQueueType)
+    DijkstraHandler.run(nodes, edges, runs, PriorityQueue, priorityQueueType)
