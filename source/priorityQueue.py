@@ -7,6 +7,3 @@ class PriorityQueue:
 
     def deleteMin(self):
         pass
-
-    def decreaseKey(self, key):
-        pass
