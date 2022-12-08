@@ -88,7 +88,7 @@ class FibHeap(PriorityQueue):
         for w in range(0, len(nodes)):
             x = nodes[w]
             d = x.degree
-            while A[d] is not None:
+            while A[d] is not None and len(A)<=d:
                 y = A[d]
                 if x.key > y.key:
                     temp = x
