@@ -1,4 +1,7 @@
 class PriorityQueue:
+    def length(self):
+        pass
+
     def insert(self, key):
         pass
 

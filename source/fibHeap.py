@@ -41,6 +41,9 @@ class FibHeap(PriorityQueue):
     # maintain total node count in full fibonacci heap
     total_nodes = 0
 
+    def length(self):
+        return self.total_nodes
+
     # return min node in O(1) time
     def findMin(self):
         return self.min_node
