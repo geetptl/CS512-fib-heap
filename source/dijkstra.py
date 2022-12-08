@@ -1,43 +1,35 @@
+import math
 import time
 
+
+def dijkstra(graph, source, PriorityQueue):
+    dist = {}
+    pred = {}
+    priorityQueue = PriorityQueue()
+    for node in graph.nodes:
+        dist[node] = math.inf
+        pred[node] = None
+    dist[source] = 0
+    priorityQueue.insert((dist[source], source))
+
+    while priorityQueue.length() != 0:
+        u = priorityQueue.deleteMin()[1]
+        for v in graph[u]:
+            if dist[u] + graph[u][v]['weight'] < dist[v]:
+                dist[v] = dist[u] + graph[u][v]['weight']
+                pred[v] = u
+                priorityQueue.insert((dist[v], v))
+    return dist, pred
+
+
 class Dijkstra():
-    def update(dist, pred, u, v):
-        if dist[u] + path_weight(graph, [u,v]) < dist[v]:
-            dist[v] = dist[u] + nx.path_weight(graph, [u,v])
-            pred[v] = u
-        return dist, pred
-    
-    def dijkstra(source):
-        dist = []
-        pred = []
-        for node in nodes(graph):
-            dist[node] = 10000
-            pred[node] = None
-            priorityQueue.insert(node)
-        dist[source] = 0
-
-        while len(minheap) != 0:
-            u = priorityQueue.deleteMin()
-            for v in neighbors(graph, u):
-                dist, pred = update(dist, pred, u, v)
-
-        return dist, pred
-
     def run(self, graph, PriorityQueue):
-        result_dist = []
-        result_pred = []
+        result_dist = {}
+        result_pred = {}
         print("Dijkstra run(nodes={}, edges={})".format(len(graph.nodes), len(graph.edges)))
-        priorityQueue = PriorityQueue()
         start_time = time.time()
         for v in graph.nodes:
-            dist, pred = dijkstra(v)
+            dist, pred = dijkstra(graph, v, PriorityQueue)
             result_dist[v] = dist
             result_pred[v] = pred
-        print("--- %s seconds ---" % (time.time() - start_time))
-
-
-
-
-
-            
-
+        return time.time() - start_time, result_dist, result_pred

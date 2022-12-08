@@ -25,7 +25,7 @@ def parseInput(argv):
     parser = OptionParser(USAGE)
 
     parser.add_option('-p', '--priorityqueue', help=default('The type of priority queue'),
-                      choices=['min-heap', 'fib-heap'], default='min-heap')
+                      choices=['min-heap', 'fib-heap', 'def'], default='def')
     parser.add_option('-n', '--nodes', help=default('Nodes'), default=20)
     parser.add_option('-d', '--density', help=default('Approximate density: between 0 and 1'), default=0.2)
     parser.add_option('-r', '--runs', help=default('Runs'), default=1)
@@ -35,6 +35,7 @@ def parseInput(argv):
         raise Exception('Command line input not understood: ' + str(junk))
 
     pqClass = MinHeap if options.priorityqueue == "min-heap" else FibHeap
+    pqClass = None if options.priorityqueue == "def" else pqClass
     nodes_ = int(options.nodes)
     density_ = float(options.density)
     runs_ = int(options.runs)

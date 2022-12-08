@@ -4,6 +4,16 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 from source.dijkstra import Dijkstra
+from source.fibHeap import FibHeap
+from source.minHeap import MinHeap
+
+
+def isEqual(m_dist, f_dist, graph):
+    for n in graph.nodes:
+        for m in graph.nodes:
+            if m_dist[n][m] != f_dist[n][m]:
+                return False
+    return True
 
 
 class DijkstraHandler:
@@ -25,4 +35,11 @@ class DijkstraHandler:
             plt.savefig("outputs/n_{}_e_{}_pq_{}_run_{}.png".format(nodes, edges, priorityQueueType, i))
             plt.figure().clear()
             dijkstra = Dijkstra()
-            dijkstra.run(graph, PriorityQueue)
+            if PriorityQueue is None:
+                m_time, m_dist, m_pred = dijkstra.run(graph, MinHeap)
+                f_time, f_dist, f_pred = dijkstra.run(graph, FibHeap)
+                print(isEqual(m_dist, f_dist, graph))
+                print("Minheap time", m_time)
+                print("Fibheap time", f_time)
+            else:
+                dijkstra.run(graph, PriorityQueue)

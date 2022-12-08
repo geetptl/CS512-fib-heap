@@ -46,7 +46,7 @@ class FibHeap(PriorityQueue):
 
     # return min node in O(1) time
     def findMin(self):
-        return self.min_node
+        return self.min_node.key, self.min_node.value
 
     # extract (delete) the min node from the heap in O(log n) time
     # amortized cost analysis can be found here (http://bit.ly/1ow1Clm)
@@ -67,7 +67,7 @@ class FibHeap(PriorityQueue):
                 self.min_node = z.right
                 self.consolidate()
             self.total_nodes -= 1
-        return z
+        return z.key, z.value
 
     # insert new node into the unordered root list in O(1) time
     # returns the node so that it can be used for decrease_key later
