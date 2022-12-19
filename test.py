@@ -5,8 +5,8 @@ from source.fibHeap import FibHeap
 from source.minHeap import MinHeap
 
 if __name__ == '__main__':
-    densities = [d / 10 for d in range(2, 8)]
-    nodes = [10 ** i for i in range(1, 7)]
+    densities = [d / 10 for d in range(2, 10)]
+    nodes = [100 * i for i in range(1, 11)]
     print("Densities : ", densities)
     print("Nodes : ", nodes)
     minheap_runtimes = {}
