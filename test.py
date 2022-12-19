@@ -16,7 +16,7 @@ if __name__ == '__main__':
         minheap_runtimes[density_] = {}
         fibheap_runtimes[density_] = {}
         for node_ in nodes:
-            print("n={}".format(d_))
+            print("n={}".format(density_))
             print("n={}".format(node_))
             edges_ = int(density_ * node_ * (node_ - 1) / 2)
 
