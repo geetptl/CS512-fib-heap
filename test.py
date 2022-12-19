@@ -6,7 +6,7 @@ from source.minHeap import MinHeap
 
 if __name__ == '__main__':
     densities = [d / 10 for d in range(2, 10)]
-    nodes = [100 * i for i in range(1, 11)]
+    nodes = [20 * i for i in range(1, 11)]
     print("Densities : ", densities)
     print("Nodes : ", nodes)
     minheap_runtimes = {}
