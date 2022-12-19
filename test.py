@@ -6,7 +6,7 @@ from source.minHeap import MinHeap
 
 if __name__ == '__main__':
     densities = [d / 10 for d in range(2, 10)]
-    nodes = [20 * i for i in range(1, 11)]
+    nodes = [10 * i for i in range(1, 15)]
     print("Densities : ", densities)
     print("Nodes : ", nodes)
     minheap_runtimes = {}
@@ -16,6 +16,7 @@ if __name__ == '__main__':
         minheap_runtimes[density_] = {}
         fibheap_runtimes[density_] = {}
         for node_ in nodes:
+            print("n={}".format(d_))
             print("n={}".format(node_))
             edges_ = int(density_ * node_ * (node_ - 1) / 2)
 
