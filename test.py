@@ -7,6 +7,8 @@ from source.minHeap import MinHeap
 if __name__ == '__main__':
     densities = [d / 10 for d in range(2, 8)]
     nodes = [10 ** i for i in range(1, 7)]
+    print("Densities : ", densities)
+    print("Nodes : ", nodes)
     minheap_runtimes = {}
     fibheap_runtimes = {}
     for density_ in densities:
