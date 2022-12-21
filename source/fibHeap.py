@@ -131,14 +131,3 @@ class FibHeap(PriorityQueue):
             self.root_list = node.right
         node.left.right = node.right
         node.right.left = node.left
-
-# if __name__ == '__main__':
-#     f = FibHeap()
-#     for i in range(1, 1000):
-#         if random.random() > 0.1:
-#             print("inserting ", i)
-#             f.insert((i, chr(i)))
-#         else:
-#             min_ = f.findMin()
-#             print(min_.key)
-#             print(f.deleteMin().key)

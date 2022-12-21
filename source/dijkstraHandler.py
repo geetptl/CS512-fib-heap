@@ -34,7 +34,7 @@ class DijkstraHandler:
                 f_time, f_dist, f_pred = dijkstra.run(graph, FibHeap)
                 if not mute:
                     print(isEqual(m_dist, f_dist, graph))
-                    print("Minheap time", m_time)
-                    print("Fibheap time", f_time)
+                    print("Minheap time : {} (ms)".format(m_time))
+                    print("Fibheap time : {} (ms)".format(f_time))
             else:
                 dijkstra.run(graph, PriorityQueue)

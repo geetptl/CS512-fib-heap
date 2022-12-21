@@ -7,9 +7,9 @@ from source.minHeap import MinHeap
 
 USAGE = """
 USAGE : python3 main.py <options>
-Example : python3 main.py -p min-heap -n 50 -d 0.3 -r 5
-            runs dijkstra 5 times using min-heap priority queue 
-            on a graph with 50 nodes and approximate density 0.3
+Example : python3 main.py -p min-heap -n 20 -d 0.6 -r 6
+            runs dijkstra 6 times using min-heap priority queue 
+            on a graph with 20 nodes and density 0.6
 """
 
 
@@ -52,6 +52,12 @@ def parseInput(argv):
     return (pqClass, nodes_, edges_, density_, runs_, options.priorityqueue)
 
 
+"""
+Demo run:
+python3 main.py -p def -n 20 -d 0.3 -r 3
+python3 main.py -p fib-heap -n 50 -d 0.4 -r 1
+python3 main.py -p min-heap -n 10 -d 0.6 -r 2
+"""
 if __name__ == '__main__':
     PriorityQueue, nodes, edges, density, runs, priorityQueueType = parseInput(sys.argv[1:])
     DijkstraHandler.run(nodes, edges, runs, PriorityQueue, priorityQueueType)
